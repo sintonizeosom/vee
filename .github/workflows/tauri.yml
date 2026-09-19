@@ -30,11 +30,35 @@ jobs:
       - name: Generate Desktop Icons
         shell: pwsh
         run: |
+          Add-Type -AssemblyName System.Drawing
           New-Item -ItemType Directory -Force -Path src-tauri/icons
-          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/tauri-apps/tauri/v1.5.0/examples/api/src-tauri/icons/icon.ico" -OutFile "src-tauri/icons/icon.ico"
-          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/tauri-apps/tauri/v1.5.0/examples/api/src-tauri/icons/32x32.png" -OutFile "src-tauri/icons/32x32.png"
-          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/tauri-apps/tauri/v1.5.0/examples/api/src-tauri/icons/128x128.png" -OutFile "src-tauri/icons/128x128.png"
-          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/tauri-apps/tauri/v1.5.0/examples/api/src-tauri/icons/128x128@2x.png" -OutFile "src-tauri/icons/128x128@2x.png"
+          
+          # Criar imagens de tamanhos padronizados
+          $sizes = @(32, 128)
+          foreach ($s in $sizes) {
+              $bmp = New-Object System.Drawing.Bitmap $s, $s
+              $g = [System.Drawing.Graphics]::FromImage($bmp)
+              $brush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(79, 70, 229))
+              $g.FillEllipse($brush, 0, 0, $s, $s)
+              $brush.Dispose()
+              $g.Dispose()
+              
+              if ($s -eq 32) {
+                  $bmp.Save("src-tauri/icons/32x32.png", [System.Drawing.Imaging.ImageFormat]::Png)
+              } elseif ($s -eq 128) {
+                  $bmp.Save("src-tauri/icons/128x128.png", [System.Drawing.Imaging.ImageFormat]::Png)
+                  $bmp.Save("src-tauri/icons/128x128@2x.png", [System.Drawing.Imaging.ImageFormat]::Png)
+                  
+                  # Gerar o icon.ico no formato binário Windows exato que o RC.EXE exige
+                  $hIcon = $bmp.GetHicon()
+                  $icon = [System.Drawing.Icon]::FromHandle($hIcon)
+                  $fs = New-Object System.IO.FileStream("src-tauri/icons/icon.ico", [System.IO.FileMode]::Create)
+                  $icon.Save($fs)
+                  $fs.Close()
+                  $icon.Dispose()
+              }
+              $bmp.Dispose()
+          }
 
       - name: Build Web App
         run: bun run build
