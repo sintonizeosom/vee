@@ -27,14 +27,11 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Generate Desktop Icons
+      - name: Generate Proper Desktop Icons
         shell: bash
         run: |
-          mkdir -p src-tauri/icons
-          curl -sL https://raw.githubusercontent.com/tauri-apps/tauri/dev/examples/api/src-tauri/icons/icon.ico -o src-tauri/icons/icon.ico
-          curl -sL https://raw.githubusercontent.com/tauri-apps/tauri/dev/examples/api/src-tauri/icons/32x32.png -o src-tauri/icons/32x32.png
-          curl -sL https://raw.githubusercontent.com/tauri-apps/tauri/dev/examples/api/src-tauri/icons/128x128.png -o src-tauri/icons/128x128.png
-          curl -sL https://raw.githubusercontent.com/tauri-apps/tauri/dev/examples/api/src-tauri/icons/128x128@2x.png -o src-tauri/icons/128x128@2x.png
+          curl -sL https://raw.githubusercontent.com/tauri-apps/tauri/dev/examples/api/app-icon.png -o app-icon.png
+          bunx @tauri-apps/cli icon app-icon.png
 
       - name: Build Web App
         run: bun run build
