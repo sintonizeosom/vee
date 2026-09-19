@@ -1,0 +1,9 @@
+{
+  "name": "VEE. V.7.2",
+  "description": "Um editor de vídeo free e online para criar vídeos incríveis. Gere legendas gratuitas com IA, adicione espectros de áudio, logos e texto. Exporte para YouTube e TikTok.",
+  "prompt": "",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

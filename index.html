@@ -1,0 +1,225 @@
+<!--
+  INSTRUÇÕES DE EXECUÇÃO:
+  Este aplicativo NÃO precisa de um passo de "build" (ex: npm run build).
+  Ele foi projetado para rodar diretamente no navegador.
+
+  Para executar corretamente:
+  1. Se você usa o Visual Studio Code, instale a extensão "Live Server".
+  2. Depois de instalada, clique com o botão direito neste arquivo (index.html).
+  3. Selecione "Open with Live Server".
+  4. Isso abrirá o aplicativo no seu navegador.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="data:image/png;base64,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_Z4J_9tln8fDDD6OlpQV//vOfsWTJEvh8Pjz99NOYOXMmbBYLvvOd7yAoKAiPPPII3n33Xfj7+8PpdKJWq7Fv3z48//zzyM7Oxl133YXvvvuOTp06QavV4rHHHsPNN9+MXbt2YdGiRejRowfKyspw33334d5770V2dja2b9+OK6+8Ep999hmWL1+OnJycuLi4oKamJiIjIxEdHY329vZoamqKzMxMdHJyQpcuXVBbWxv19fURFRUVFRcXR0tLS3Tp0iX09fVF9+7dExYWFm4P/wE/1vGvW2p+AAAAAElFTUTSuQmCC" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amatic+SC:wght@700&family=Anton&family=Architects+Daughter&family=Archivo+Black&family=Audiowide&family=Bangers&family=Barlow:wght@400;600;800&family=Bebas+Neue&family=Black+Ops+One&family=Bodoni+Moda:ital,wght@0,700;1,400&family=Bungee&family=Bungee+Inline&family=Carter+One&family=Caveat:wght@400;700&family=Chakra+Petch:wght@400;700&family=Chewy&family=Cinzel:wght@400;700;900&family=Comic+Neue:wght@400;700&family=Concert+One&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Creepster&family=Dancing+Script:wght@500;700&family=DM+Sans:wght@400;700;900&family=Fira+Code:wght@400;700&family=Fraunces:wght@700;900&family=Fredoka:wght@400;600;700&family=Great+Vibes&family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@400;700&family=Josefin+Sans:wght@400;600;700&family=Jost:wght@400;700;900&family=Kalam:wght@400;700&family=Kanit:ital,wght@0,400;0,700;0,900;1,400&family=Kaushan+Script&family=Lexend:wght@400;700;800&family=Lilita+One&family=Lobster&family=Lobster+Two:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Luckiest+Guy&family=Manrope:wght@400;700;800&family=Merriweather:wght@400;700&family=Montserrat:ital,wght@0,400;0,700;0,900;1,700&family=Nunito:wght@400;700;900&family=Open+Sans:wght@400;700;800&family=Orbitron:wght@500;800;900&family=Oswald:wght@400;600;700&family=Outfit:wght@400;700;900&family=Pacifico&family=Passion+One:wght@700;900&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;700;800&family=Poppins:ital,wght@0,400;0,700;0,900;1,700&family=Press+Start+2P&family=Quicksand:wght@500;700&family=Raleway:wght@400;700;900&family=Righteous&family=Roboto:wght@400;700;900&family=Rock+Salt&family=Rubik:wght@400;700;900&family=Russo+One&family=Sacramento&family=Satisfy&family=Shadows+Into+Light&family=Silkscreen&family=Sniglet&family=Sora:wght@400;700;800&family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&family=Titan+One&family=Unbounded:wght@700;900&family=Urbanist:wght@400;700;900&family=VT323&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#6d28d9" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>VEE - Editor de Vídeo Gratuito com Legendas Grátis & Espectro de Áudio (Windows)</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="O VEE é o melhor editor de vídeo free e online. Faça geração de legendas gratuitas com IA, crie espectros de áudio e use nosso banco de mídias. Exporte para YouTube e TikTok sem downloads." />
+    <meta name="keywords" content="editor de vídeo free, editor de vídeo gratuito, geração de legendas gratuitas, legenda com ia, editor de vídeo online, espectro de áudio, visualizador de áudio, criar vídeo com música, VEE, Video Editor Espectro, editor para youtube, editor para tiktok" />
+    <meta name="author" content="Rubemar Albuquerque (RCA-APPS)" />
+    <link rel="canonical" href="https://www.videoeditorespectro.com.br/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.videoeditorespectro.com.br/" />
+    <meta property="og:title" content="VEE - Editor de Vídeo Gratuito com Legendas Grátis & Espectro de Áudio Online" />
+    <meta property="og:description" content="O VEE é o melhor editor de vídeo free e online. Faça geração de legendas gratuitas com IA, crie espectros de áudio e use nosso banco de mídias. Exporte para YouTube e TikTok sem downloads." />
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXaPyBpGiGT_pbEsUUAYUOFSRUrr2kWkMjLSa1U1BvGjW8y8LaCcJJ3xbgCb0p8YyiOOOaOiwb4aWJeh85k-zajRSG0EO0H8DUkG_66-lTGTWo6BagR96gQSQTaPDuL_uOntW3G_dTty_TMmV7EfoRfczF8r1bIOtCO1vO6YKJ0tyHNJGeKWVA05RFoZw/s1600/Design%20sem%20nome%20-%202025-08-17T190801.283.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.videoeditorespectro.com.br/" />
+    <meta property="twitter:title" content="VEE - Editor de Vídeo Gratuito com Legendas Grátis & Espectro de Áudio Online" />
+    <meta property="twitter:description" content="O VEE é o melhor editor de vídeo free e online. Faça geração de legendas gratuitas com IA, crie espectros de áudio e use nosso banco de mídias. Exporte para YouTube e TikTok sem downloads." />
+    <meta property="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXaPyBpGiGT_pbEsUUAYUOFSRUrr2kWkMjLSa1U1BvGjW8y8LaCcJJ3xbgCb0p8YyiOOOaOiwb4aWJeh85k-zajRSG0EO0H8DUkG_66-lTGTWo6BagR96gQSQTaPDuL_uOntW3G_dTty_TMmV7EfoRfczF8r1bIOtCO1vO6YKJ0tyHNJGeKWVA05RFoZw/s1600/Design%20sem%20nome%20-%202025-08-17T190801.283.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "VEE - Video Editor Espectro",
+      "url": "https://www.videoeditorespectro.com.br/",
+      "description": "Um editor de vídeo free e online que permite a geração de legendas gratuitas com IA, criar vídeos com espectro de áudio, textos, logos e um banco de mídias. Exporte em alta qualidade para YouTube e TikTok.",
+      "applicationCategory": ["MultimediaApplication", "DesignApplication"],
+      "operatingSystem": "All",
+      "browserRequirements": "Requires HTML5 support, Chrome, Edge",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Rubemar Albuquerque (RCA-APPS)"
+      },
+      "keywords": "editor de vídeo free, editor de vídeo gratuito, geração de legendas gratuitas, legenda com ia, espectro de áudio, editor de vídeo online, VEE"
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom scrollbar for a more modern look */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #2d3748; /* gray-800 */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #718096; /* gray-500 */
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #a0aec0; /* gray-400 */
+      }
+      /* Custom responsive grid columns */
+      .grid-cols-auto-fit-36 {
+        grid-template-columns: repeat(auto-fit, minmax(36px, 1fr));
+      }
+      .grid-cols-auto-fit-44 {
+        grid-template-columns: repeat(auto-fit, minmax(44px, 1fr));
+      }
+      .grid-cols-auto-fit-50 {
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+      }
+      .grid-cols-auto-fit-60 {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+      }
+      .grid-cols-auto-fit-70 {
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+      }
+      .grid-cols-auto-fit-80 {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      }
+
+      /* Animation Previews for Text Editor */
+      @keyframes anim-fade-in { from { opacity: 0; } to { opacity: 1; } }
+      @keyframes anim-slide-in-up { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+      @keyframes anim-slide-in-left { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+      @keyframes anim-zoom-in { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+      @keyframes anim-reveal-up { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
+      @keyframes anim-blur-in { from { filter: blur(8px); opacity: 0; } to { filter: blur(0); opacity: 1; } }
+      @keyframes anim-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+      @keyframes anim-bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-15%); } 60% { transform: translateY(-7%); } }
+      @keyframes anim-typing {
+        0%, 100% { width: 0; }
+        50%, 90% { width: 100%; }
+      }
+      @keyframes anim-glow {
+        from {
+          text-shadow: 0 0 5px rgba(255,255,255,0.6), 0 0 10px var(--glow-color-1, #0af);
+        }
+        to {
+          text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px var(--glow-color-2, #0af);
+        }
+      }
+      @keyframes anim-skew-in { 0% { transform: skewX(20deg) translateX(-20px); opacity: 0; } 100% { transform: skewX(0deg) translateX(0); opacity: 1; } }
+      @keyframes anim-elastic-in { 0% { transform: scale(0.3); opacity: 0; } 60% { transform: scale(1.15); opacity: 1; } 80% { transform: scale(0.95); } 100% { transform: scale(1.0); } }
+      @keyframes anim-tracking-expand { 0% { letter-spacing: -6px; opacity: 0; } 100% { letter-spacing: 2px; opacity: 1; } }
+      @keyframes anim-rotate-in { 0% { transform: rotate(-45deg) scale(0.5); opacity: 0; } 100% { transform: rotate(0deg) scale(1.0); opacity: 1; } }
+      @keyframes anim-flicker-in { 0%, 20%, 40%, 60% { opacity: 0.15; } 10%, 30%, 50%, 70%, 100% { opacity: 1.0; } }
+      @keyframes anim-jitter { 0%, 100% { transform: translate(0, 0); } 10% { transform: translate(-1px, -1px); } 30% { transform: translate(1px, -1px); } 50% { transform: translate(-1px, 1px); } 70% { transform: translate(1px, 1px); } 90% { transform: translate(-1px, -1px); } }
+      @keyframes anim-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+      @keyframes anim-wave { 0%, 100% { transform: translateY(0) rotate(0deg); } 33% { transform: translateY(-4px) rotate(-2deg); } 66% { transform: translateY(2px) rotate(2deg); } }
+      @keyframes anim-rainbow { 0% { color: hsl(0, 95%, 65%); } 25% { color: hsl(90, 95%, 65%); } 50% { color: hsl(180, 95%, 65%); } 75% { color: hsl(270, 95%, 65%); } 100% { color: hsl(360, 95%, 65%); } }
+      @keyframes anim-glitch { 0%, 100% { transform: translate(0, 0) skew(0deg); } 10% { transform: translate(-2px, 1px) skew(-5deg); filter: hue-rotate(90deg); } 20% { transform: translate(2px, -1px) skew(5deg); } 30% { transform: translate(0, 0) skew(0deg); } }
+      @keyframes anim-swing-in { 0% { transform: rotate(-30deg) translateY(-30px); opacity: 0; } 100% { transform: rotate(0deg) translateY(0); opacity: 1; } }
+      @keyframes anim-spin-bounce-in { 0% { transform: rotate(-360deg) scale(0.2); opacity: 0; } 80% { transform: rotate(0deg) scale(1.1); opacity: 1; } 100% { transform: scale(1.0); } }
+      @keyframes anim-flip-3d { 0% { transform: perspective(400px) rotateX(90deg); opacity: 0; } 100% { transform: perspective(400px) rotateX(0deg); opacity: 1; } }
+      @keyframes anim-drop-impact { 0% { transform: translateY(-60px) scaleY(1.3); opacity: 0; } 70% { transform: translateY(0) scaleY(0.85); opacity: 1; } 100% { transform: translateY(0) scaleY(1.0); } }
+      @keyframes anim-heartbeat { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.18); } 30% { transform: scale(1); } 45% { transform: scale(1.1); } }
+      @keyframes anim-wobble { 0%, 100% { transform: translateX(0) rotate(0deg); } 15% { transform: translateX(-6px) rotate(-4deg); } 30% { transform: translateX(5px) rotate(4deg); } 45% { transform: translateX(-3px) rotate(-2deg); } 60% { transform: translateX(2px) rotate(1deg); } }
+      @keyframes anim-shimmer { 0% { filter: brightness(1); text-shadow: 0 0 0px transparent; } 50% { filter: brightness(1.6); text-shadow: 0 0 12px #c084fc; } 100% { filter: brightness(1); text-shadow: 0 0 0px transparent; } }
+      @keyframes anim-breath { 0%, 100% { transform: scale(1); opacity: 0.85; } 50% { transform: scale(1.08); opacity: 1; } }
+      @keyframes anim-credits-roll { 0% { transform: translateY(45%); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(-45%); opacity: 0; } }
+      @keyframes anim-star-wars-roll { 0% { transform: perspective(80px) rotateX(20deg) translateY(45%) scale(1.1); opacity: 0; } 25% { opacity: 1; } 80% { opacity: 0.85; } 100% { transform: perspective(80px) rotateX(20deg) translateY(-45%) scale(0.65); opacity: 0; } }
+      
+      .anim-preview-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .anim-preview-fade { animation: anim-fade-in 2s ease-in-out infinite alternate; }
+      .anim-preview-slide-in-up { animation: anim-slide-in-up 1.5s ease-out infinite; }
+      .anim-preview-slide-in-left { animation: anim-slide-in-left 1.5s ease-out infinite; }
+      .anim-preview-zoom-in { animation: anim-zoom-in 2s ease-in-out infinite alternate; }
+      .anim-preview-reveal-up { animation: anim-reveal-up 1.5s ease-out infinite; }
+      .anim-preview-blur-in { animation: anim-blur-in 2s ease-in-out infinite alternate; }
+      .anim-preview-pulse { animation: anim-pulse 1.5s ease-in-out infinite; }
+      .anim-preview-bounce { animation: anim-bounce 2s ease-in-out infinite; }
+      .anim-preview-typing {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        animation: anim-typing 3.5s steps(8, end) infinite;
+      }
+      .anim-preview-glow {
+        animation: anim-glow 1.5s ease-in-out infinite alternate;
+      }
+      .anim-preview-skew-in { animation: anim-skew-in 1.5s ease-out infinite alternate; }
+      .anim-preview-elastic-in { animation: anim-elastic-in 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) infinite; }
+      .anim-preview-tracking-expand { animation: anim-tracking-expand 1.8s ease-out infinite alternate; }
+      .anim-preview-rotate-in { animation: anim-rotate-in 1.8s cubic-bezier(0.19, 1, 0.22, 1) infinite; }
+      .anim-preview-flicker-in { animation: anim-flicker-in 2s infinite; }
+      .anim-preview-jitter { animation: anim-jitter 0.3s linear infinite; }
+      .anim-preview-float { animation: anim-float 2s ease-in-out infinite; }
+      .anim-preview-wave { animation: anim-wave 2.5s ease-in-out infinite; }
+      .anim-preview-rainbow { animation: anim-rainbow 4s linear infinite !important; }
+      .anim-preview-glitch-loop { animation: anim-glitch 1s steps(2, start) infinite; }
+      .anim-preview-swing-in { animation: anim-swing-in 1.8s ease-out infinite; }
+      .anim-preview-spin-bounce { animation: anim-spin-bounce-in 2s infinite; }
+      .anim-preview-flip-3d { animation: anim-flip-3d 1.8s ease-out infinite; }
+      .anim-preview-drop-impact { animation: anim-drop-impact 1.6s infinite; }
+      .anim-preview-heartbeat { animation: anim-heartbeat 1.4s ease-in-out infinite; }
+      .anim-preview-wobble { animation: anim-wobble 1.5s ease-in-out infinite; }
+      .anim-preview-shimmer { animation: anim-shimmer 2s ease-in-out infinite; }
+      .anim-preview-breath { animation: anim-breath 2.5s ease-in-out infinite; }
+      .anim-preview-credits-roll { animation: anim-credits-roll 2.8s linear infinite; }
+      .anim-preview-star-wars { animation: anim-star-wars-roll 3s linear infinite; }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.532.0",
+    "html2canvas": "https://esm.sh/html2canvas@^1.4.1",
+    "mp4-muxer": "https://esm.sh/mp4-muxer@^2.0.2",
+    "@google/genai": "https://esm.sh/@google/genai",
+    "jszip": "https://esm.sh/jszip@3.10.1",
+    "@xenova/transformers": "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-900 text-white">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => {
+            console.log('SW registration failed:', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
